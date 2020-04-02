@@ -1,0 +1,25 @@
+.map-container {
+  height: 200px;
+  position: relative;
+}
+
+.map-container iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.mapouter
+{position:relative;
+  text-align:right;
+  height:500px;
+  width:600px;
+}
+.gmap_canvas
+ {
+   overflow:hidden;
+   background:none!important;
+   height:500px;
+   width:600px;
+  }

@@ -1,0 +1,153 @@
+<!--Main Layout-->
+<main>
+
+<!--About the webapp-->
+<div class="container my-5">
+
+
+  <!-- Section: Block Content -->
+  <section  data-aos="fade-right"data-aos-duration="1000"class="dark-grey-text">
+
+      <h3 class="text-center font-weight-bold mb-4 pb-2">A unique HR service platform</h3>
+      <p class="text-center text-muted w-responsive mx-auto mb-5">EasyUs give you the opportunity to postulate fo intership in
+        a big company without wasting your time trying to find the convient one for you because she will find it for you.<br>Just <span style="font-weight: bold;">one click</span> and the magic start
+      </p>
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-lg-5 mb-lg-0 mb-5">
+
+        <img src="../../assets/image/home.jpg" class="img-fluid rounded z-depth-1" alt="Sample project image">
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div style="margin-top:90px"class="col-lg-6">
+
+        <ul class="list-unstyled fa-ul mb-0">
+          <li class=" justify-content-center pl-4">
+            <span class="fa-li"><i class="fas fa-book fa-2x cyan-text"></i></span>
+            <div>
+              <h5 class="font-weight-bold mb-1">Education</h5>
+              <p class="text-muted">Find an intership in a big company and postulate for it</p>
+            </div>
+          </li>
+          <li class=" justify-content-center pl-4">
+            <span class="fa-li"><i class="fas fa-comments fa-2x red-text"></i></span>
+            <div>
+              <h5 class="font-weight-bold mb-3">Commutication</h5>
+              <p class="text-muted">Communicate directely with the companies.</p>
+            </div>
+          </li>
+          <li class="justify-content-center pl-4">
+            <span class="fa-li"><i class="fas fa-stopwatch fa-2x lime-text"></i></span>
+            <div>
+              <h5 class="font-weight-bold mb-3">Time</h5>
+              <p class="text-muted">Give you the chance to find an intership in no time.</p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+    <hr class="my-5">
+
+  </section>
+  <!-- Section: Block Content -->
+
+
+</div>
+
+</main>
+<!--News-->
+<h1 style="margin-top:40px"class="text-center text-muted ont-weight-bold mb-4 pb-5">News</h1>
+
+<!-- Card -->
+<div class="card"  *ngFor="let article of articles">
+
+  <!-- Card image -->
+  <div class="view overlay">
+    <img class="card-img-top" [src]="article.urlToImage" alt="Card image cap">
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+  <!-- Card image -->
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <!-- Title -->
+    <h4 class="card-title">{{article.title}}</h4>
+    <hr>
+    <!-- Text -->
+    <p class="card-text">{{article.content}}</p>
+
+  </div>
+   <!-- Card content -->
+
+  <!-- Card footer -->
+  <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+    <ul class="list-unstyled list-inline font-small">
+      <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i></li>
+      <li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="far fa-thumbs-up"></i>12</a></li>
+      <li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="far fa-eye"></i>21</a></li>
+      <li class="list-inline-item"><a href="#" class="white-text"><i class="fas fa-share"></i>5</a></li>
+    </ul>
+  </div>
+  <!-- Card footer -->
+</div>
+<!-- Card -->
+
+<!--Main Layout-->
+<!--Colaborator-->
+<h1 class="text-center text-muted ont-weight-bold mb-4 pb-5">Strong strategic partnerships to be even closer to you!</h1>
+<a routerLink="/companies" routerLinkActive="active" >
+  <img   data-aos="fade-up" data-aos-duration="1000"class="focus" src="../../assets/image/companies/focus.png" alt="logo_not_found">
+ </a>
+<a  routerLink="/companies" routerLinkActive="active"  >
+  <img data-aos="fade-down"data-aos-duration="1000" class="sofrecome" src="../../assets/image/companies/sofrecom.png"alt="logo_not_found">
+</a>
+
+<a  routerLink="/companies" routerLinkActive="active"  >
+ <img data-aos="fade-right" data-aos-duration="1000"class="accratio" src="../../assets/image/companies/acc.png" alt="logo_not_found">
+</a>
+
+<a  routerLink="/companies" routerLinkActive="active"  >
+  <img data-aos="zoom-in"data-aos-duration="1000" class="talan" src="../../assets/image/companies/talan.png"alt="logo_not_found">
+ </a>
+ <a  routerLink="/companies" routerLinkActive="active"  >
+  <img  data-aos="flip-up"  data-aos-duration="1000"class="linedata" src="../../assets/image/companies/Linedata_Logo.jpg" alt="logo_not_found">
+ </a>
+<a  routerLink="/companies" routerLinkActive="active"  >
+  <img data-aos="fade-left" data-aos-duration="1000" class="bfi" src="../../assets/image/companies/bfi.jpeg"alt="logo_not_found">
+</a>
+
+<a  routerLink="/companies" routerLinkActive="active"  >
+ <img  data-aos="fade-up-right" data-aos-duration="1000" class="pixel" src="../../assets/image/companies/pixel.png" alt="logo_not_found">
+</a>
+
+<a  routerLink="/companies" routerLinkActive="active"  >
+ <img data-aos="fade-down-right" data-aos-duration="1000" class="vermeg" src="../../assets/image/companies/Vermeg19.jpg" alt="logo_not_found">
+</a>
+<a  routerLink="/companies" routerLinkActive="active"  >
+ <img data-aos="flip-right"  data-aos-duration="1000"class="neoxam" src="../../assets/image/companies/neo.jpg"alt="logo_not_found" >
+</a>
+<a  routerLink="/companies" routerLinkActive="active"  >
+ <img data-aos="fade-up" class="telnet" data-aos-duration="1000" src="../../assets/image/companies/telnet.jpg"alt="logo_not_found">
+</a>
+
+
+<!--begin-->
+<router-outlet></router-outlet>
+<!--end-->
+
+
