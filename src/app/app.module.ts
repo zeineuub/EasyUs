@@ -20,6 +20,8 @@ import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { CompaniesComponent } from './companies/companies.component';
 
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider,AuthService } from "angularx-social-login";
 import {NewsApiService} from'./services/newsapi.service';
 import{HttpModule}  from'@angular/http';
 import { ContactComponent } from './contact/contact.component';
@@ -31,6 +33,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+
+
+ //configure it in an object
+ let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("15218572080-17h4brabbej2b4u22ll2j9ajs8idtmiq.apps.googleusercontent.com")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("230244308174898")
+  }
+])
 
 @NgModule({
   declarations: [
@@ -55,6 +70,7 @@ import { MatListModule } from '@angular/material/list';
 
 
 
+
   ],
   imports: [
     BrowserModule,
@@ -71,9 +87,16 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    HttpModule
+    HttpModule,
+    SocialLoginModule.initialize(config)
   ],
-  providers: [NewsApiService],
+  providers: [
+    NewsApiService,
+AuthService
+
+
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
