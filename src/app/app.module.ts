@@ -22,8 +22,8 @@ import { CompaniesComponent } from './companies/companies.component';
 
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider,AuthService } from "angularx-social-login";
-import {NewsApiService} from'./services/newsapi.service';
-import{HttpModule}  from'@angular/http';
+import { NewsApiService } from'./services/newsapi.service';
+import { HttpModule }  from'@angular/http';
 import { ContactComponent } from './contact/contact.component';
 import { InfiniComponent } from './infini/infini.component';
 import { SIMComponent } from './sim/sim.component';
@@ -58,18 +58,9 @@ import { MatListModule } from '@angular/material/list';
     HomeComponent,
     ErrorComponent,
     CompaniesComponent,
-
-
     ContactComponent,
-
-
     InfiniComponent,
-
-
     SIMComponent,
-
-
-
 
   ],
   imports: [
