@@ -250,21 +250,14 @@
             <div class="text-center mb-3">
               <button  style="color:white"type="button" class="btn winter-neva-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
             </div>
-            <p   class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in
-              with:</p>
+            <p   class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
 
             <div class="row my-3 d-flex justify-content-center">
               <!--Facebook-->
-              <button style="margin-left:auto;margin-right: auto;"type="button" class="btn  indigo darken-1 btn-rounded mr-md-3 z-depth-1a"><i  style="color:white"class="fab fa-facebook-f text-center"></i></button>
-
+              <div style="margin-right:50px ;" class="fb-login-button" data-width="100" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="true" data-use-signin-as="true"></div>
               <!--Google +-->
-              <button type="button" (click)="signIn('Google')" class="btn  red btn-rounded z-depth-1a"><i   style="color:white"class="fab fa-google-plus-g"></i></button>
-              <button type="button" (click)="signOut()" style="color:white;top:60px;left:-160px" class="btn deep-blue-gradient btn-rounded z-depth-1a">Sign Out</button>
-              <div *ngIf="user">
-                <img src="{{user.photoUrl}}"/>
-                <h4>{{user.name}}</h4>
-                <p>{{user.email}} </p>
-              </div>
+              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
             </div>
           </div>
           <br>
