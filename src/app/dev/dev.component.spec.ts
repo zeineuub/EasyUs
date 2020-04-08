@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NArTicComponent } from './n-ar-tic.component';
+import { DevComponent } from './dev.component';
 
-describe('NArTicComponent', () => {
-  let component: NArTicComponent;
-  let fixture: ComponentFixture<NArTicComponent>;
+describe('DevComponent', () => {
+  let component: DevComponent;
+  let fixture: ComponentFixture<DevComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NArTicComponent ]
+      declarations: [ DevComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NArTicComponent);
+    fixture = TestBed.createComponent(DevComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

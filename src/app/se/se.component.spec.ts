@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SIMComponent } from './sim.component';
+import { SEComponent } from './se.component';
 
-describe('SIMComponent', () => {
-  let component: SIMComponent;
-  let fixture: ComponentFixture<SIMComponent>;
+describe('SEComponent', () => {
+  let component: SEComponent;
+  let fixture: ComponentFixture<SEComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SIMComponent ]
+      declarations: [ SEComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SIMComponent);
+    fixture = TestBed.createComponent(SEComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

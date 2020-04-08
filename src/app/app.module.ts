@@ -10,12 +10,13 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import{MatInputModule} from '@angular/material/input'
 
 
+
+import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { NgenieComponent } from './ngenie/ngenie.component';
-import { NArTicComponent } from './n-ar-tic/n-ar-tic.component';
-import { NNIDSComponent } from './n-nids/n-nids.component';
-import { NSLEAMComponent } from './n-sleam/n-sleam.component';
-import { NTWINComponent } from './n-twin/n-twin.component';
+import { SEComponent } from './se/se.component';
+import { NetworkComponent } from './network/network.component';
+
+import { DevComponent } from './dev/dev.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { CompaniesComponent } from './companies/companies.component';
@@ -25,8 +26,7 @@ import { GoogleLoginProvider, FacebookLoginProvider,AuthService } from "angularx
 import { NewsApiService } from'./services/newsapi.service';
 import { HttpModule }  from'@angular/http';
 import { ContactComponent } from './contact/contact.component';
-import { InfiniComponent } from './infini/infini.component';
-import { SIMComponent } from './sim/sim.component';
+
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -50,17 +50,15 @@ import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
-    NgenieComponent,
-    NArTicComponent,
-    NNIDSComponent,
-    NSLEAMComponent,
-    NTWINComponent,
+    SEComponent,
+    NetworkComponent,
+    NetworkComponent,
+    SEComponent,
+    DevComponent,
     HomeComponent,
     ErrorComponent,
     CompaniesComponent,
     ContactComponent,
-    InfiniComponent,
-    SIMComponent,
 
   ],
   imports: [

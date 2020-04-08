@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
-import{NSLEAMComponent} from'./n-sleam/n-sleam.component';
-import{ NgenieComponent} from './ngenie/ngenie.component'
-import{ NTWINComponent} from'./n-twin/n-twin.component';
-import{ NNIDSComponent} from './n-nids/n-nids.component';
-import{NArTicComponent} from'./n-ar-tic/n-ar-tic.component';
+
+import{ SEComponent} from './se/se.component'
+
+import{ DevComponent} from'./dev/dev.component';
+
+import{NetworkComponent} from'./network/network.component';
 
 import { CompaniesComponent} from './companies/companies.component';
-import {InfiniComponent} from'./infini/infini.component';
+
 import{ContactComponent} from'./contact/contact.component';
 import{AllComponent} from './all/all.component';
-import{SIMComponent} from'./sim/sim.component';
+
 
 
 
@@ -36,33 +37,16 @@ const routes: Routes = [
         component:AllComponent
       },
       {
-        path:'ngenie',
-        component:NgenieComponent
+        path:'dev',
+        component:DevComponent
       },
       {
-        path:'nTwin',
-        component:NTWINComponent
+        path:'network',
+        component:NetworkComponent
       },
       {
-        path:'nArTic',
-        component: NArTicComponent
-     },
-     {
-       path:'nNIDS',
-       component:NNIDSComponent
-     },
-     {
-       path:'nSLEAM',
-       component:NSLEAMComponent
-     },
-
-     {
-       path:'nInFinI',
-       component:InfiniComponent
-     },
-     {
-       path:'nSIM',
-       component:SIMComponent
+        path:'se',
+        component: SEComponent
      }
 
     ]
