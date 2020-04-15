@@ -5,9 +5,14 @@ const path=require('path');
 
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname + '/src/index.html'));
-});
+
+
+  app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname + '/build/index.html'));
+  });
+
+
+
 
 //el port
 const PORT=process.env.Port||4200;
