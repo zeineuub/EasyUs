@@ -1,22 +1,16 @@
-// Express require bish tekhdem bil fonction inteha like router
-const express=require('express');
-const app=express();
-const path=require('path');
+//Install express server
+const express = require('express');
 
-// For all GET requests, send back index.html
-// so that PathLocationStrategy can be used
+const path = require('path');
 
+const app = express();
 
-  // Serve only the static files form the dist directory
-app.use(express.static(__dirname + './dist/project-easy-us'));
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dist'));
 
-
-
+app.get('/*', function(req,res) {
+    res.sendFile(path.join(__dirname+'/dist/index.html'));
+});
 
 // Start the app by listening on the default Heroku port
-const PORT=process.env.Port||3000;
-
-//listen to the port
-app.listen(PORT,()=>console.log(`Server started at ${PORT}`));
-
-
+app.listen(process.env.PORT || 3000);
