@@ -7,11 +7,7 @@ const path=require('path');
 // so that PathLocationStrategy can be used
 
 
-  app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname + '/build/index.html'));
-  });
-
-
+app.use(express.static(__dirname + '/dist'));
 
 
 //el port
