@@ -7,16 +7,14 @@ const path=require('path');
 // so that PathLocationStrategy can be used
 
 
-app.use(express.static(__dirname + '/dist'));
+  // Serve only the static files form the dist directory
+app.use(express.static(__dirname + './dist/project-easy-us'));
 
 
-app.all('*', (req, res) => {
-  res.status(200).sendFile(__dirname + '/dist/index.html');
-});
 
 
-//el port
-const PORT=process.env.Port||4200;
+// Start the app by listening on the default Heroku port
+const PORT=process.env.Port||3000;
 
 //listen to the port
 app.listen(PORT,()=>console.log(`Server started at ${PORT}`));
