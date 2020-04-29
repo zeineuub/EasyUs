@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { FormsModule } from '@angular/forms'
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import{MatInputModule} from '@angular/material/input'
@@ -12,6 +12,8 @@ import{MatInputModule} from '@angular/material/input'
 
 
 import {MatSelectModule} from '@angular/material/select';
+
+
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { SEComponent } from './se/se.component';
 import { NetworkComponent } from './network/network.component';
@@ -26,6 +28,7 @@ import { GoogleLoginProvider, FacebookLoginProvider,AuthService } from "angularx
 import { NewsApiService } from'./services/newsapi.service';
 import { HttpModule }  from'@angular/http';
 import { ContactComponent } from './contact/contact.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -77,7 +80,9 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatListModule,
     HttpModule,
-    SocialLoginModule.initialize(config)
+    SocialLoginModule.initialize(config),
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [
     NewsApiService,

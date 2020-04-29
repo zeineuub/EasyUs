@@ -34,60 +34,37 @@
 
 </div>
 
+<!--Search Bare-->
+
 <div class="sb">
-  <div class="tit">
-    <h2> Search for intership</h2>
-  </div>
-  <div class="col-md-6 col-xl-4">
-    <form >
-
-      <!--List of companies-->
-      <fieldset>
-        <label>Companies</label>
-        <input style="width: 280px;" class="form-control " type="text" placeholder="Name of the companies">
-      </fieldset>
-
-      <fieldset>
-
-          <label for="inputState">Technologies</label>
-          <select style="width: 280px;height: 30px;" class="form-control"  multiple>
-            <option selected>All Technologies</option>
-
-                <option value="1">JavaScript</option>
-
-                <option value="2">Html</option>
-
-                <option value="3">Bootstrap</option>
-
-                <option value="4">Angular</option>
-
-                <option value="5">Spring</option>
-
-                <option value="6" >React</option>
-
-                <option value="8">JEE</option>
-
-                <option value="9">C#</option>
-                <option value="10">Python</option>
-
-                <option value="11">Node.Js</option>
-
-                <option value="12">Senphony</option>
-
-                <option value="13">Php</option>
+  <br>
+    <div class="tit">
+      <h2> Search for intership</h2>
+    </div>
+    <div class="col-md-6 col-xl-4">
 
 
+        <!--List of companies-->
+        <form  class="form-inline d-flex justify-content-center md-form form-md">
+          <input style="margin-left: 140px;"class="form-control form-control- mr-2 w-20" type="text" placeholder="Search"
+            aria-label="Comapanies">
+          <i style="margin-top:-50px;margin-left: 250px;" class="fas fa-search" aria-hidden="true"></i>
+        </form>
 
-          </select>
+      <!--List of Technologies-->
+        <mat-form-field>
+          <mat-label>Technologies</mat-label>
+          <mat-select color="accent" [formControl]="techs" multiple>
+            <mat-option *ngFor="let tech of techList" [value]="tech">{{tech}}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      </fieldset>
 
+    </div>
 
-
-    </form>
   </div>
 
-</div>
+
 
 
 
