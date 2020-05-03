@@ -168,29 +168,41 @@
         </div>
         <!--Body-->
         <div class="modal-body">
-          <!--Body-->
-          <div class="md-form mb-5">
-            <input type="email" id="Form-email5" class="form-control validate " >
-            <label   style="color:tan"data-error="wrong" data-success="right" for="Form-email5">Your email</label>
-          </div>
+              <!--Body-->
+            <form action="/user/register" method="POST">
+                <div class="md-form mb-5">
+                  <input type="name" id="name"  name="name" class="form-control validate">
+                  <label class="font-weight-bold" style="color:tan"data-error="wrong" data-success="right" for="name">Your Name</label>
+                </div>
+                <div class="md-form mb-5">
+                  <input type="email" id="email" name="email" class="form-control validate " >
+                  <label   style="color:tan"data-error="wrong" data-success="right" for="Form-email5">Your email</label>
+                </div>
 
-          <div class="md-form pb-3">
-            <input type="password" id="Form-pass5" class="form-control validate ">
-            <label   style="color:tan"data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
-           <!-- Default checked -->
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="defaultChecked2" >
-            <label style="color:#1C2331" class="custom-control-label" for="defaultChecked2">Accept the <a href="#" class="brown-text font-weight-bold">
-              Terms and Conditions</a></label>
-          </div>
-          </div>
+                <div class="md-form pb-3">
+                  <input type="password" id="password"  name="password" class="form-control validate ">
+                  <label   style="color:tan"data-error="wrong" data-success="right" for="password">Your password</label>
+                </div>
+                <div class="md-form pb-3">
+                  <input type="password" id="password2" name="password2" class="form-control validate ">
+                  <label   style="color:tan"data-error="wrong" data-success="right" for="password2">Confirm your password </label>
+                </div>
+                <br>
+                <!-- Default checked -->
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="defaultChecked2" >
+                  <label style="color:#1C2331" class="custom-control-label" for="defaultChecked2">Accept the <a href="#" class="brown-text font-weight-bold">
+                    Terms and Conditions</a></label>
+                </div>
+            </form>
+        </div>
 
           <!--Grid row-->
           <div class="row d-flex align-items-center mb-4">
 
             <!--Grid column-->
             <div class="text-center mb-3 col-md-12">
-              <button type="button" class="btn btn-brown btn-block btn-rounded z-depth-1">Sign up</button>
+              <button type="submit" class="btn btn-brown btn-block btn-rounded z-depth-1">Sign up</button>
             </div>
             <!--Grid column-->
 
@@ -215,7 +227,7 @@
     </div>
     <!--/.Content-->
   </div>
-</div>
+
 <!-- Sign Up Modal -->
 <!-- Sign In Modal -->
 
@@ -235,30 +247,32 @@
           <!--Body-->
           <div class="modal-body mx-4">
             <!--Body-->
-            <div class="md-form mb-5">
-              <input type="email" id="Form-email1" class="form-control validate">
-              <label class="font-weight-bold" style="color:#929fba"data-error="wrong" data-success="right" for="Form-email1">Your email</label>
-            </div>
+            <form action="/user/login" method="POST">
+              <div class="md-form mb-5">
+                <input type="email" id="email" name="email" class="form-control validate">
+                <label class="font-weight-bold" style="color:#929fba"data-error="wrong" data-success="right" for="email">Your email</label>
+              </div>
 
-            <div class="md-form pb-3">
-              <input type="password" id="Form-pass1" class="form-control validate">
-              <label class="font-weight-bold" style="color:#1c2a48" data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
-              <p  style="color:#1C2331" class="font-small text d-flex justify-content-end">Forgot <a href="#"  style="color:#5c6bc0"class="text ml-1">
-                  Password?</a></p>
-            </div>
+              <div class="md-form pb-3">
+                <input type="password" name="password" id="password" class="form-control validate">
+                <label class="font-weight-bold" style="color:#1c2a48" data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
+                <p  style="color:#1C2331" class="font-small text d-flex justify-content-end">Forgot <a href="#"  style="color:#5c6bc0"class="text ml-1">
+                    Password?</a></p>
+              </div>
 
-            <div class="text-center mb-3">
-              <button  style="color:white"type="button" class="btn winter-neva-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
-            </div>
-            <p   class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
+              <div class="text-center mb-3">
+                <button  style="color:white" type="submit" class="btn winter-neva-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
+              </div>
+              <p   class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
 
-            <div class="row my-3 d-flex justify-content-center">
-              <!--Facebook-->
-              <div style="margin-right:50px" class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true"></div>
-               <!--Google +-->
-              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+              <div class="row my-3 d-flex justify-content-center">
+                <!--Facebook-->
+                <div style="margin-right:50px" class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true"></div>
+                <!--Google +-->
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
-            </div>
+              </div>
+            </form>
           </div>
           <br>
           <!--Footer-->

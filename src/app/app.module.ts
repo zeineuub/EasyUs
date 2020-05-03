@@ -63,6 +63,7 @@ import { MatListModule } from '@angular/material/list';
     CompaniesComponent,
     ContactComponent,
 
+
   ],
   imports: [
     BrowserModule,
@@ -82,7 +83,8 @@ import { MatListModule } from '@angular/material/list';
     HttpModule,
     SocialLoginModule.initialize(config),
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [
     NewsApiService,
