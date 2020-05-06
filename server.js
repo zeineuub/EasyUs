@@ -2,9 +2,24 @@ const express = require('express');
 const path = require('path');
 const mongoose=require('mongoose');
 const app = express();
-const flash=require('connect-flash');
+
 const user= require('./routes/user');
-const session=require('express-session');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+
+const dotenv=require('dotenv');
+dotenv.config();
+
+// set up BodyParser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+//Route Middleware
+app.use('/user',user);
+
+
+
 //DB configuration
 const db=require('./config/keys').MangoUrl;
 
@@ -17,6 +32,7 @@ mongoose.connect(db,{useNewUrlParser:true})
 })
 .catch(err=>console.log(err));
 
+
 //Express Session middleware
 app.use(session({
   secret:'secret',
@@ -24,33 +40,8 @@ app.use(session({
   saveUninitialized:true,
 }));
 
-//Middleware
-app.use(express.json());
-//Connect Flash
-app.use(flash());
-
-//Global Vars
-//hedhom flash msg fil redirection
-
-app.use((req,res,next)=>{
-  res.locals.success_msg=req.flash('success_msg');
-  res.locals.errors_msg=req.flash('errors_msg');
-  res.locals.error=req.flash('error');
-
-  next();
-});
-//Route Middleware
-app.use('/user',user);
-
-//Bodyparser
-//hedha extacti mil req les données eli hajtek behom
-app.use(express.urlencoded({extended:false}));
 
 
-
-//Bodyparser
-//hedha extacti mil req les données eli hajtek behom
-app.use(express.urlencoded({extended:false}));
 
 
 //el port

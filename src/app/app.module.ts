@@ -26,10 +26,10 @@ import { CompaniesComponent } from './companies/companies.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider,AuthService } from "angularx-social-login";
 import { NewsApiService } from'./services/newsapi.service';
-import { HttpModule }  from'@angular/http';
+import { HttpClientModule  }  from'@angular/common/http';
 import { ContactComponent } from './contact/contact.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import {HttpModule} from '@angular/http';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -80,17 +80,18 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    HttpModule,
+    HttpClientModule ,
     SocialLoginModule.initialize(config),
     MatSelectModule,
     ReactiveFormsModule,
+    HttpModule
 
   ],
-  providers: [
-    NewsApiService,
-AuthService
-
-
+  providers:
+  [
+      NewsApiService,
+      AuthService,
+      HttpClientModule
 
   ],
   bootstrap: [AppComponent]
