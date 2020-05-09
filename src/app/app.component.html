@@ -11,21 +11,29 @@
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link"  data-toggle="modal" data-target="#darkModalForm">Sign Up</a>
+          <li class="nav-item" >
+            <a class="nav-link"  data-toggle="modal" data-target="#darkModalForm"><i class="fas fa-user-graduate"></i>Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="modal" data-target="#elegantModalForm" >Sign In</a>
+            <a class="nav-link" data-toggle="modal" data-target="#elegantModalForm" ><i class="fas fa-user-graduate"></i>Sign In</a>
           </li>
-          <li class="nav-item" style="margin-left:530px">
+          <li class="nav-item">
+            <a class="nav-link"  data-toggle="modal" data-target="#Form1"><i class="fas fa-building"></i>Sign Up </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#Form2" ><i class="fas fa-building"></i>Sign In</a>
+          </li>
+          <li class="nav-item" style="margin-left:200px">
             <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact Us</a>
           </li>
+
 
         </ul>
         <form class="form-inline">
           <div class="md-form my-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           </div>
+
         </form>
       </div>
     </div>
@@ -150,7 +158,7 @@
 
 </footer>
 <!-- Footer -->
-<!-- Sign Up Modal -->
+<!-- Sign Up Modal For normal user -->
 <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true"
   >
@@ -171,22 +179,20 @@
               <!--Body-->
 
                 <div class="md-form mb-5">
-                  <input type="name" id="name"  name="name" class="form-control validate">
-                  <label class="font-weight-bold" style="color:tan"data-error="wrong" data-success="right" for="name">Your Name</label>
+                  <input [(ngModel)]="registerUserdata.name"  name="name" id="name"  type="text" class="form-control validate " >
+                  <label   style="color:tan"data-error="wrong" data-success="right" for="name">Your name</label>
                 </div>
+
                 <div class="md-form mb-5">
-                  <input type="email" id="email" name="email" class="form-control validate " >
-                  <label   style="color:tan"data-error="wrong" data-success="right" for="Form-email5">Your email</label>
+                  <input  [(ngModel)]="registerUserdata.email" name="email"   id="email" type="email" class="form-control validate " >
+                  <label   style="color:tan"data-error="wrong" data-success="right" for="email">Your email</label>
                 </div>
 
                 <div class="md-form pb-3">
-                  <input type="password" id="password"  name="password" class="form-control validate ">
+                  <input [(ngModel)]="registerUserdata.password"  name="password" id="password"    type="password"  class="form-control validate ">
                   <label   style="color:tan"data-error="wrong" data-success="right" for="password">Your password</label>
                 </div>
-                <div class="md-form pb-3">
-                  <input type="password" id="password2" name="password2" class="form-control validate ">
-                  <label   style="color:tan"data-error="wrong" data-success="right" for="password2">Confirm your password </label>
-                </div>
+
                 <br>
                 <!-- Default checked -->
                 <div class="custom-control custom-checkbox">
@@ -195,6 +201,7 @@
                     Terms and Conditions</a></label>
                 </div>
 
+
         </div>
 
           <!--Grid row-->
@@ -202,7 +209,7 @@
 
             <!--Grid column-->
             <div class="text-center mb-3 col-md-12">
-              <button type="submit" class="btn btn-brown btn-block btn-rounded z-depth-1">Sign up</button>
+              <button (click)="registerUser()" type="button" class="btn btn-brown btn-block btn-rounded z-depth-1">Sign up</button>
             </div>
             <!--Grid column-->
 
@@ -228,8 +235,8 @@
     <!--/.Content-->
   </div>
 
-<!-- Sign Up Modal -->
-<!-- Sign In Modal -->
+<!-- Sign Up Modal for normal user-->
+<!-- Sign In Modal  for normal user-->
 
     <div  class="momo" class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
       aria-hidden="true">
@@ -248,31 +255,32 @@
           <div class="modal-body mx-4">
             <!--Body-->
 
+
               <div class="md-form mb-5">
-                <input type="email" id="email" name="email" class="form-control validate">
+                <input [(ngModel)]="loginUserdata.email"   type="email" id="email" name="email" class="form-control validate">
                 <label class="font-weight-bold" style="color:#929fba"data-error="wrong" data-success="right" for="email">Your email</label>
               </div>
 
               <div class="md-form pb-3">
-                <input type="password" name="password" id="password" class="form-control validate">
+                <input [(ngModel)]="loginUserdata.password"    type="password" name="password" id="password" class="form-control validate">
                 <label class="font-weight-bold" style="color:#1c2a48" data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
                 <p  style="color:#1C2331" class="font-small text d-flex justify-content-end">Forgot <a href="#"  style="color:#5c6bc0"class="text ml-1">
                     Password?</a></p>
               </div>
 
               <div class="text-center mb-3">
-                <button  style="color:white" type="submit" class="btn winter-neva-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
+                <button  style="color:white" (click)="loginUser()" type="button" class="btn winter-neva-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
               </div>
               <p   class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
 
               <div class="row my-3 d-flex justify-content-center">
-                <!--Facebook-->
-                <div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true" data-width=""></div>
+
 
                 <!--Google +-->
                 <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
               </div>
+
           </div>
           <br>
           <!--Footer-->
@@ -285,5 +293,145 @@
         <!--/.Content-->
       </div>
     </div>
-    <!-- Sign In Modal -->
+    <!-- Sign In Modal for normal user-->
+
+
+
+
+  <!-- Sign Up Modal For companies -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="Form1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content form-elegant" style="background-image: url('./assets/image/sign up_in companies/signup-image.jpg') ;background-repeat: no-repeat;background-position: center;">
+
+          <!--Header-->
+          <div class="modal-header text-center">
+            <h3 class="modal-title w-100 font-weight-bold my-3" id="myModalLabel"  style="color:#7986cb"><strong>Sign up Company</strong></h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!--Body-->
+          <div class="modal-body mx-4">
+            <!--Body-->
+           <form method="POST" action="/user/registercompany">
+              <div class="md-form mb-5">
+                <input type="text" id="namecompany" id="namecompany" class="form-control validate">
+                <label  style="color:#1C2331;font-weight: bold;"data-error="wrong" data-success="right" for="namecompany">Name Company</label>
+              </div>
+              <div class="md-form mb-5">
+                <input type="email" id="emailcompany" name="emailcompany"class="form-control validate">
+                <label style="color:#1C2331;font-weight: bold;" data-error="wrong" data-success="right" for="emailcompany">Email</label>
+              </div>
+              <div class="md-form mb-5">
+                <input type="password" id="passwordcompany" name="passwordcompany"class="form-control validate">
+                <label  style="color:#1C2331;font-weight: bold;"data-error="wrong" data-success="right" for="password">Password</label>
+              </div>
+              <br>
+              <!-- Default checked -->
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="defaultChecked2" >
+                <label style="color:#1C2331" class="custom-control-label" for="defaultChecked2">Accept the <a href="#"style="color:lightslategray;font-weight:bold">
+                  Terms and Conditions</a></label>
+              </div>
+
+               <br>
+                <!--Grid row-->
+                <div class="row d-flex align-items-center mb-4">
+
+                  <!--Grid column-->
+                  <div class="text-center mb-3 col-md-12">
+                    <button type="submit"  class="btn winter-neva-gradient btn-block btn-rounded z-depth-1a">Sign up</button>
+                  </div>
+                  <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+
+                  <!--Grid column-->
+                  <div class="col-md-12">
+                    <p class="font-small dark-text d-flex justify-content-end"> Have an account? <a  data-toggle="modal" data-target="#Form2" style="color:slategrey" class="ml-1 font-weight-bold">
+                        Log in</a></p>
+                  </div>
+                  <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+             </form>
+
+          </div>
+
+
+        </div>
+        <!--/.Content-->
+      </div>
+    </div>
+    <!-- Modal -->
+
+
+
+  <!-- Sign Up Modal For companies -->
+
+
+  <!-- Sign In Modal For companies -->
+  <div  class="momo" class="modal fade" id="Form2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <!--Content-->
+
+    <div class="modal-content form-elegant" style="background-image: url('./assets/image/sign up_in companies/signin-image.jpg') ;background-repeat: no-repeat;background-position: center;">
+      <!--Header-->
+      <div class="modal-header text-center">
+        <h3 class="modal-title w-100 font-weight-bold my-3" id="myModalLabel" style="color:#7986cb"><strong>Sign in Company</strong></h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body mx-4">
+        <!--Body-->
+        <form method="POST" action="/user/logincompany">
+          <div class="md-form mb-5">
+            <input type="email" id="emailcompany" name="emailcompany" class="form-control validate">
+            <label class="font-weight-bold" style="color:#1c2a48"data-error="wrong" data-success="right" for="emailcompany">Email</label>
+          </div>
+
+          <div class="md-form pb-3">
+            <input type="password" name="passwordcompany" id="passwordcompany" class="form-control validate">
+            <label class="font-weight-bold" style="color:#1c2a48" data-error="wrong" data-success="right" for="passwordcompany">Password</label>
+
+          </div>
+
+          <div class="text-center mb-3">
+            <button type="submit"  class="btn winter-neva-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
+          </div>
+          <br>
+          <br>
+          <p  style="font-weight: bold;color:royalblue" class="font-small  text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
+
+          <div class="row my-3 d-flex justify-content-center">
+
+
+            <!--Google +-->
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+          </div>
+        </form>
+      </div>
+      <br>
+      <!--Footer-->
+      <div class="modal-footer mx-5 pt-4 mb-1">
+        <p  class="font-small dark-text d-flex justify-content-end">Not a member ? <a   data-toggle="modal" data-target="#Form1" style="color:#1C2331"  class="text ml-1">
+            Sign Up</a></p>
+      </div>
+    </div>
+
+    <!--/.Content-->
+  </div>
+</div>
+  <!-- Sign In Modal For companies -->
 

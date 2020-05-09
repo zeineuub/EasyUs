@@ -2,14 +2,12 @@ const express = require('express');
 const path = require('path');
 const mongoose=require('mongoose');
 const app = express();
-
+const cors = require('cors');
 const user= require('./routes/user');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
-const dotenv=require('dotenv');
-dotenv.config();
 
 // set up BodyParser Middleware
 app.use(bodyParser.json());
@@ -34,6 +32,7 @@ mongoose.connect(db,{useNewUrlParser:true})
 
 
 //Express Session middleware
+
 app.use(session({
   secret:'secret',
   resave:true,
@@ -42,10 +41,9 @@ app.use(session({
 
 
 
-
-
+app.use(cors());
 //el port
-const PORT = process.env.Port ||4200;
+const PORT = process.env.Port ||3000;
 
 
 

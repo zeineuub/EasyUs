@@ -28,6 +28,7 @@ const routes: Routes = [
   {
     path:'companies',
     component:CompaniesComponent,
+
     children:[
       {
         path: '', redirectTo: 'all', pathMatch: 'full'
