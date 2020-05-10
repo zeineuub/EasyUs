@@ -16,7 +16,15 @@ app.use(cookieParser());
 //Route Middleware
 app.use('/user',user);
 
-
+app.use(function(request, response, next) {
+  response.header("Access-Control-Allow-Origin", "*");
+  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+app.options('/user/*', function (request, response, next) {
+  response.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+  response.send();
+});
 
 //DB configuration
 const db=require('./config/keys').MangoUrl;
@@ -40,9 +48,20 @@ app.use(session({
 }));
 
 
-
-app.use(cors());
-//el port
+var originsWhitelist = [
+  'http://localhost:4200',
+    //this is my front-end url for development
+   'https://easyus.web.app/home'
+];
+var corsOptions = {
+  origin: function(origin, callback){
+        var isWhitelisted = originsWhitelist.indexOf(origin) !== -1;
+        callback(null, isWhitelisted);
+  },
+  credentials:true
+}
+//here is the magic
+app.use(cors(corsOptions));
 const PORT = process.env.Port ||3000;
 
 
