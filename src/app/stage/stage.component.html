@@ -1,0 +1,50 @@
+<br>
+
+ <section >
+   <div class="jumbotron">
+     <div class="box">
+        <h2>Stage</h2>
+       <form >
+          <div class="inputBox">
+            <label for="" class="">Add Stage</label>
+          </div>
+          <br>
+          <br>
+
+          <div class="inputBox">
+              <input [(ngModel)]="stageUserDate.nomsociete" type="text" class="" name="nomsociete"   required>
+              <label for="" class="">Name Societe</label>
+          </div>
+
+          <div class="inputBox">
+
+              <input [(ngModel)]="stageUserDate.emailsociete"  type="email" class="" name="emailsociete"  required>
+              <label for="" class="">Email</label>
+
+          </div>
+
+          <div class="inputBox">
+
+            <input [(ngModel)]="stageUserDate.nomstage"  type="text" class="" name="nomstage"  required>
+            <label for="" class="">Name Stage</label>
+
+          </div>
+          <div class="inputBox">
+             <textarea [(ngModel)]="stageUserDate.description" class="" name="description"  required></textarea>
+             <label class="">Description</label>
+
+          </div>
+          <div class="inputBox">
+
+            <label >Please Upload the image of your company</label>
+            <br>
+            <input type="file" name="image" mutiple (change)="onFileSelected($event)"/>
+          </div>
+          <button (click)="onUpload() " type="button"  class="btn btn-primary float-right" >Upload</button>
+          <button  (click)="addStage()" type="button" class="btn btn-primary float-right" >Add Stage</button>
+       </form>
+     </div>
+   </div>
+ </section>
+
+

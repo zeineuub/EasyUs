@@ -1,59 +1,26 @@
 <!--specialté-->
-<h1 style="margin-top:40px"class="text-center text-muted ont-weight-bold mb-4 pb-5">Specialities</h1>
-
-
-<div style=" margin-left:450px;">
-    <div   data-aos-duration="500"style="margin-left:-380px;" data-aos="zoom-in" >
-
-      <a  routerLink="all" routerLinkActive="active">
-        <img title="" id="all"  src="../../assets/image/specialité/all.png" alt="picture not found"/>
-      </a>
-
-    </div>
-    <div  data-aos-duration="500"style="margin-left:-50px;margin-top:-165px;" data-aos="flip-right" >
-
-          <a routerLink="dev" routerLinkActive="active">
-            <img title="Developpment" id="dev"  src="../../assets/image/specialité/dev_Plan de travail 1.png" alt="picture not found"/>
-          </a>
-
-    </div>
-    <div   data-aos-duration="500"style=" margin-left:200px;margin-top:-145px;"data-aos="zoom-in">
-
-          <a routerLink="network" routerLinkActive="active">
-            <img title="Network Infrastructure and Data Security "id="network" src="../../assets/image/specialité/network_Plan de travail 1.png" alt="picture not found"/>
-          </a>
-
-    </div>
-    <div data-aos-duration="500" style=" margin-left:450px;margin-top:-150px;" data-aos="flip-left" >
-
-          <a routerLink="se" routerLinkActive="active">
-            <img title="Embedded System " id="se"  src="../../assets/image/specialité/se_Plan de travail 1.png" alt="picture not found"/>
-          </a>
-
-    </div>
-
-</div>
+<h1 style="margin-top:60px"class="text-center text-muted ont-weight-bold mb-4 pb-5">Companies</h1>
 
 <!--Search Bare-->
 
-<div class="sb">
+<div style="margin-left: 100px;" class="sb">
   <br>
     <div class="tit">
-      <h2> Search for intership</h2>
+      <h2 style="color:#ff5722 "><strong>Search for intership</strong> </h2>
     </div>
     <div class="col-md-6 col-xl-4">
 
 
         <!--List of companies-->
         <form  class="form-inline d-flex justify-content-center md-form form-md">
-          <input style="margin-left: 140px;"class="form-control form-control- mr-2 w-20" type="text" placeholder="Search"
+          <input style="color:#e65100;font-size: 20px;" style="margin-left: 140px;"class="form-control form-control- mr-2 w-20" type="text" placeholder="Search"
             aria-label="Comapanies">
-          <i style="margin-top:-50px;margin-left: 250px;" class="fas fa-search" aria-hidden="true"></i>
+          <i style="margin-top:-50px;margin-left: 250px;color:white" class="fas fa-search" aria-hidden="true"></i>
         </form>
 
       <!--List of Technologies-->
         <mat-form-field>
-          <mat-label>Technologies</mat-label>
+          <mat-label style="color:#ff5722 ;font-size: 20px;">Technologies</mat-label>
           <mat-select color="accent" [formControl]="techs" multiple>
             <mat-option *ngFor="let tech of techList" [value]="tech">{{tech}}</mat-option>
           </mat-select>

@@ -26,7 +26,7 @@ import { CompaniesComponent } from './companies/companies.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider,AuthService } from "angularx-social-login";
 import { NewsApiService } from'./services/newsapi.service';
-import { HttpClientModule  }  from'@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS  }  from'@angular/common/http';
 import { ContactComponent } from './contact/contact.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
@@ -36,9 +36,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { StageComponent } from './stage/stage.component';
+import{StagesService} from './services/stages.service';
+import { ListeStageComponent } from './liste-stage/liste-stage.component';
+import { NewsComponent } from './news/news.component'
+import { AuthGuard } from './auth.guard';
 
-
-
+import {TokenInterceptorService} from './services/token-interceptor.service'
  //configure it in an object
  let config = new AuthServiceConfig([
   {
@@ -63,6 +69,11 @@ import { MatListModule } from '@angular/material/list';
     ErrorComponent,
     CompaniesComponent,
     ContactComponent,
+    HeaderComponent,
+    FooterComponent,
+    StageComponent,
+    ListeStageComponent,
+    NewsComponent,
 
 
   ],
@@ -85,14 +96,17 @@ import { MatListModule } from '@angular/material/list';
     SocialLoginModule.initialize(config),
     MatSelectModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+
 
   ],
   providers:
   [
       NewsApiService,
       AuthService,
-      HttpClientModule
+      HttpClientModule,
+      StagesService,
+      AuthGuard
 
 
   ],

@@ -12,10 +12,10 @@ import { CompaniesComponent} from './companies/companies.component';
 
 import{ContactComponent} from'./contact/contact.component';
 import{AllComponent} from './all/all.component';
-
-
-
-
+import{StageComponent} from './stage/stage.component'
+import{NewsComponent} from'./news/news.component';
+import{ListeStageComponent} from './liste-stage/liste-stage.component'
+import{AuthGuard} from'./auth.guard';
 
 const routes: Routes = [
 
@@ -24,9 +24,22 @@ const routes: Routes = [
     component:ContactComponent
 
   },
+  {
+    path:'listage',
+    component:ListeStageComponent,
+    /*when we want to navigate to listage route they
+    can activate guard only if it's true yaani if
+    the user is authenticated */
 
+
+  },
+  {
+    path:'news',
+    component:NewsComponent
+  },
   {
     path:'companies',
+
     component:CompaniesComponent,
 
     children:[
@@ -35,7 +48,8 @@ const routes: Routes = [
       },
       {
         path:'all',
-        component:AllComponent
+        component:AllComponent,
+
       },
       {
         path:'dev',
@@ -52,6 +66,8 @@ const routes: Routes = [
 
     ]
   },
+
+
   {
     path:'home',
     component: HomeComponent,
@@ -63,6 +79,12 @@ const routes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   },
+  {
+    path:"stage",
+    component:StageComponent,
+    canActivate:[AuthGuard]
+
+  }
 
 
 ];

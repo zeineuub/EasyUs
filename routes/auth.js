@@ -76,6 +76,73 @@ const bcrypt=require('bcryptjs');
   });
 
 
+//registration and login for company
+
+
+  //Registration User  Handle
+  router.post('/registerCom',(req,res)=>{
+    UserCompany.findOne({emailcompany:req.body.emailcompany})
+      .then(userCom=>
+        {
+          //ken kineh fil DB
+          if(userCom)
+          {
+            console.log('here')
+            return res.status(400).send('Email Company already exists') ;
+          }
+          else
+          {
+            let userComData= req.body;
+            let user=new UserCompany (userComData);
+
+            bcrypt.genSalt(10,(err,salt)=>
+                bcrypt.hash(userComData.passwordcompany,salt,(err,hash )=>{
+                    if(err) throw err;
+                    //set password to hash
+                    userComData.passwordcompany=hash;
+                    user.save((error,registeredComUser)=>{
+                      if(error){
+                        console.log(error)
+                      }else{
+                        console.log(userComData)
+                        let payload={subject:registeredComUser._id}
+                        let token=jwt.sign(payload,'secretkey')
+                        res.status(400).send({token})
+                      }
+                    })
+                })
+           )}
+      })
+    });
+
+  //login  User handle
+  router.post('/loginCom',(req,res)=>{
+    //extracting userdata
+    let userComData=req.body
+    //checking existing email
+      UserCompany.findOne({emailcompany:req.body.emailcompany},(error,user)=>{
+        if(error){
+          console.log(error)
+        }
+        else{
+          //if we don't find the email
+          if(!user){
+            res.status(401).send('Email company not found')
+          }else{
+            //if we found the email we check the password validation
+            if(user.passwordcompany !== userComData.passwordcompany){
+
+              res.status(401).send('Invalid password')
+            }else{
+              let payload={subject:user._id}
+              let token=jwt.sign(payload,'secretkey')
+              res.status(200).send({token})
+              console.log(userComData)
+            }
+          }
+        }
+      })
+  });
 
 
 

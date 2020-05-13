@@ -1,0 +1,47 @@
+<!--News-->
+<h1 style="margin-top:40px"class="text-center text-muted ont-weight-bold mb-4 pb-5">News</h1>
+
+<!-- Card -->
+<div style="width: 600px; display: inline-block;margin-left: 110px;" data-aos="flip-up" data-aos-duration="1500" class="cardbox"  *ngFor="let article of news.articles">
+
+  <!-- Card image -->
+  <div class="view overlay">
+    <img class="card-img-top" [src]="article.urlToImage" alt="Card image cap">
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+  <!-- Card image -->
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <!-- Title -->
+    <h4 class="card-title">{{article.title}}</h4>
+    <hr>
+    <!-- Text -->
+    <p class="card-text">{{article.content}}</p>
+
+  </div>
+   <!-- Card content -->
+
+  <!-- Card footer -->
+  <div class="rounded-bottom mdb-color grey lighten-1 text-center pt-2">
+    <ul  style="margin-top:10px"class="list-unstyled list-inline font-small">
+
+      <li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="far fa-thumbs-up"></i>12</a></li>
+      <li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="far fa-eye"></i>21</a></li>
+      <li class="list-inline-item"><a href="#" class="white-text"><i class="fas fa-share"></i>5</a></li>
+    </ul>
+    <a target="_blanck"style="margin-top:-45px" [href]="article.url" class="white-text d-flex justify-content-end">
+
+     <button style="border-radius: 90px;width:auto"  type="button" class="btn btn-rounded btn-blue-grey-lighten-5"><i class="fas fa-redo pr-2" aria-hidden="true"></i>Read More</button>  </a>
+
+  </div>
+  <br>
+  <br>
+  </div>
+  <!-- Card footer -->
+
+
+<!-- Card -->

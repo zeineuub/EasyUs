@@ -70,7 +70,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "projectEasyUs:build"
+            "browserTarget": "projectEasyUs:build",
+            "proxyConfig": "src/proxy.conf.json"
+
+
           },
           "configurations": {
             "production": {

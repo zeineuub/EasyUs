@@ -1,0 +1,331 @@
+  <!--Navbar-->
+  <nav style="margin-left: -300px;"class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+    <div class="container">
+      <a   style="margin-right: 100px;"class="navbar-brand" href="#"><i class="fab fa-artstation"></i><strong>EasyUs</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+        <ul  style="margin-top: 3px;"class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a style="font-weight:bold ;" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <!-- sign up for user -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-graduate"></i>Sign Up</a>
+            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+              <a data-toggle="modal" data-target="#darkModalForm"class="dropdown-item" >Sign Up</a>
+              <a data-toggle="modal" data-target="#elegantModalForm"class="dropdown-item" [routerLink]="loginUser">Sign In</a>
+
+            </div>
+          </li>
+          <!--sign up for companies-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-building"></i>Sign Up</a>
+            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+              <a data-toggle="modal" data-target="#Form1"class="dropdown-item">Sign Up</a>
+              <a data-toggle="modal" data-target="#Form2"class="dropdown-item"[routerLink]="loginCom">Sign In</a>
+
+            </div>
+          </li>
+          <li class="nav-item" style="margin-left:500px">
+            <a style="font-weight:bold ;"class="nav-link" routerLink="/stage" *ngIf="!_auth.loggedIn()" routerLinkActive="active">Stage</a>
+          </li>
+
+
+          <li class="nav-item" style="margin-left:10px;">
+            <a style="font-weight:bold ;width: 150px;"class="nav-link" routerLink="/contact" routerLinkActive="active">Contact Us</a>
+          </li>
+          <li class="nav-item" style="margin-left:-15px">
+            <a style="font-weight:bold ;"class="nav-link" routerLink="/news" routerLinkActive="active">News</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+
+
+
+
+  <!-- Sign Up Modal For normal user -->
+<div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+<div class="modal-dialog form-dark" role="document">
+  <!--Content-->
+  <div class="modal-content card card-image" style="background-image: url('./assets/image/pic1-01-ConvertImage.png');background-repeat: no-repeat;background-position: center;">
+    <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+      <!--Header-->
+      <div class="modal-header text-center pb-4">
+        <h3 style="color:#b71c1c"class="modal-title w-100  font-weight-bold" id="myModalLabel"><strong>SIGN</strong> <a
+            class="white-text font-weight-bold"><strong> UP</strong></a></h3>
+        <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+            <!--Body-->
+
+              <div class="md-form mb-5">
+                <input [(ngModel)]="registerUserdata.name" style="color:white" name="name" id="name"  type="text" class="form-control validate " >
+                <label   style="color:black;font-weight: bold;"data-error="wrong" data-success="right" for="name">Your name</label>
+              </div>
+
+              <div class="md-form mb-5">
+                <input  [(ngModel)]="registerUserdata.email" style="color:white"name="email"   id="email" type="email" class="form-control validate " >
+                <label   style="color:black;font-weight: bold;"data-error="wrong" data-success="right" for="email">Your email</label>
+              </div>
+
+              <div class="md-form pb-3">
+                <input [(ngModel)]="registerUserdata.password"  style="color:white"name="password" id="password" color   type="password"  class="form-control validate ">
+                <label   style="color:black;font-weight: bold;"data-error="wrong" data-success="right" for="password">Your password</label>
+              </div>
+
+              <br>
+              <!-- Default checked -->
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="defaultChecked2" >
+                <label style="color:#1C2331" class="custom-control-label" for="defaultChecked2">Accept the <a href="#" class="white-text font-weight-bold">
+                  Terms and Conditions</a></label>
+              </div>
+
+
+      </div>
+
+        <!--Grid row-->
+        <div class="row d-flex align-items-center mb-4">
+
+          <!--Grid column-->
+          <div class="text-center mb-3 col-md-12">
+            <button (click)="registerUser()" type="button" class="btn btn-brown btn-block btn-rounded red lighten-3">Sign up</button>
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+        <!--Grid row-->
+        <div class="row">
+
+          <!--Grid column-->
+          <div class="col-md-12">
+            <p class="font-small white-text  d-flex justify-content-end"><strong>Have an account?</strong> <a  data-toggle="modal" data-target="#elegantModalForm"style="color:#b71c1c" hclass="ml-1 font-weight-bold">
+                Log in</a></p>
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+      </div>
+    </div>
+  </div>
+  <!--/.Content-->
+</div>
+
+<!-- Sign Up Modal for normal user-->
+<!-- Sign In Modal  for normal user-->
+
+  <div  class="momo" class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <!--Content-->
+
+      <div class="modal-content form-elegant" style="background-image: url('./assets/image/pic2-01-ConvertImage.png') ;background-repeat: no-repeat;">
+        <!--Header-->
+        <div class="modal-header text-center">
+          <h3 class="modal-title w-100 font-weight-bold my-3" id="myModalLabel" style="color:#b71c1c"><strong>Sign in</strong></h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body mx-4">
+          <!--Body-->
+
+
+            <div class="md-form mb-5">
+              <input [(ngModel)]="loginUserdata.email"   type="email" id="email" name="email" class="form-control validate">
+              <label class="font-weight-bold" style="color:#b71c1c"data-error="wrong" data-success="right" for="email">Your email</label>
+            </div>
+
+            <div class="md-form pb-3">
+              <input [(ngModel)]="loginUserdata.password"    type="password" name="password" id="password" class="form-control validate">
+              <label class="font-weight-bold" style="color:#b71c1c" data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
+              <p  style="color:#1C2331;font-weight: bold;" class="font-small text d-flex justify-content-end">Forgot <a href="#"  style="color:#b71c1c"class="text ml-1">
+                  Password?</a></p>
+            </div>
+
+            <div class="text-center mb-3">
+              <button  style="color:white" (click)="loginUser()" type="button" class="btn  btn-block btn-rounded red lighten-3">Sign in</button>
+            </div>
+            <p   style="font-weight: bold ;"class="font dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
+
+            <div class="row my-3 d-flex justify-content-center">
+
+              <!--Google +-->
+              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+            </div>
+
+        </div>
+        <br>
+        <!--Footer-->
+        <div class="modal-footer mx-5 pt-4 mb-1">
+          <p  style="font-weight: bold ;"class="font grey-text d-flex justify-content-end">Not a member? <a   data-toggle="modal" data-target="#darkModalForm" style="color:white"  class="text ml-1">
+              Sign Up</a></p>
+        </div>
+      </div>
+
+      <!--/.Content-->
+    </div>
+  </div>
+  <!-- Sign In Modal for normal user-->
+
+
+
+
+<!-- Sign Up Modal For companies -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="Form1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <!--Content-->
+      <div class="modal-content form-elegant" style="background-image: url('./assets/image/pic3-01-ConvertImage.png') ;background-repeat: no-repeat;background-position: center;">
+
+        <!--Header-->
+        <div class="modal-header text-center">
+          <h3 class="modal-title w-100 font-weight-bold my-3" id="myModalLabel"  style="color:Black"><strong>Sign up Company</strong></h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body mx-4">
+          <!--Body-->
+         <form method="POST" action="/user/registercompany">
+            <div class="md-form mb-5">
+              <input type="text" id="namecompany" id="namecompany" class="form-control validate">
+              <label  style="color:#1C2331;font-weight: bold;"data-error="wrong" data-success="right" for="namecompany">Name Company</label>
+            </div>
+            <div class="md-form mb-5">
+              <input type="email" id="emailcompany" name="emailcompany"class="form-control validate">
+              <label style="color:#1C2331;font-weight: bold;" data-error="wrong" data-success="right" for="emailcompany">Email</label>
+            </div>
+            <div class="md-form mb-5">
+              <input type="password" id="passwordcompany" name="passwordcompany"class="form-control validate">
+              <label  style="color:#1C2331;font-weight: bold;"data-error="wrong" data-success="right" for="password">Password</label>
+            </div>
+            <br>
+            <!-- Default checked -->
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="defaultChecked2" >
+              <label style="color:#1C2331;font-weight: bold;" class="custom-control-label" for="defaultChecked2">Accept the <a href="#"style="color:#b71c1c;font-weight:bold">
+                Terms and Conditions</a></label>
+            </div>
+
+             <br>
+              <!--Grid row-->
+              <div class="row d-flex align-items-center mb-4">
+
+                <!--Grid column-->
+                <div class="text-center mb-3 col-md-12">
+                  <button (click)="registerCom()" type="submit"  class="btn  btn-block btn-rounded red lighten-3">Sign up</button>
+                </div>
+                <!--Grid column-->
+
+              </div>
+              <!--Grid row-->
+
+              <!--Grid row-->
+              <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-12">
+                  <p  style="font-size: large;font-weight: bold;" class="font dark-text d-flex justify-content-end"> Have an account? <a  data-toggle="modal" data-target="#Form2" style="color:#b71c1c" class="ml-1 font-weight-bold">
+                      Log in</a></p>
+                </div>
+                <!--Grid column-->
+
+              </div>
+              <!--Grid row-->
+           </form>
+
+        </div>
+
+
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+  <!-- Modal -->
+
+
+
+<!-- Sign Up Modal For companies -->
+
+
+<!-- Sign In Modal For companies -->
+<div  class="momo" class="modal fade" id="Form2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <br>
+  <br>
+  <br>
+<div class="modal-dialog" role="document">
+  <!--Content-->
+
+  <div class="modal-content form-elegant" style="background-image: url('./assets/image/pic4-01-ConvertImage.png') ;background-repeat: no-repeat;background-position: center;">
+    <!--Header-->
+
+    <div class="modal-header text-center">
+      <h3 class="modal-title w-100 font-weight-bold my-3" id="myModalLabel" style="color:black"><strong>Sign in Company</strong></h3>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <!--Body-->
+    <div class="modal-body mx-4">
+      <!--Body-->
+      <form method="POST" action="/user/logincompany">
+        <div class="md-form mb-5">
+          <input type="email" id="emailcompany" name="emailcompany" class="form-control validate">
+          <label class="font-weight-bold" style="color:#1c2a48"data-error="wrong" data-success="right" for="emailcompany">Email</label>
+        </div>
+
+        <div class="md-form pb-3">
+          <input type="password" name="passwordcompany" id="passwordcompany" class="form-control validate">
+          <label class="font-weight-bold" style="color:#1c2a48" data-error="wrong" data-success="right" for="passwordcompany">Password</label>
+
+        </div>
+
+        <div class="text-center mb-3">
+          <button (click)="loginCom()" type="submit"  class="btn btn-block btn-rounded red lighten-3">Sign in</button>
+        </div>
+        <br>
+        <br>
+        <p  style="font-weight: bold;color:white" class="font-large text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
+
+        <div class="row my-3 d-flex justify-content-center">
+
+
+          <!--Google +-->
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+        </div>
+      </form>
+    </div>
+    <br>
+    <!--Footer-->
+    <div class="modal-footer mx-5 pt-4 mb-1">
+      <p   style="font-size: large;font-weight: bold;" class="fontdark-text d-flex justify-content-end">Not a member ? <a   data-toggle="modal" data-target="#Form1" style="color:white"  class="text ml-1">
+          Sign Up</a></p>
+    </div>
+  </div>
+
+  <!--/.Content-->
+</div>
+</div>
+<!-- Sign In Modal For companies -->
+
