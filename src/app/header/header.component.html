@@ -14,8 +14,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-graduate"></i>Sign Up</a>
             <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-              <a data-toggle="modal" data-target="#darkModalForm"class="dropdown-item" >Sign Up</a>
-              <a data-toggle="modal" data-target="#elegantModalForm"class="dropdown-item" [routerLink]="loginUser">Sign In</a>
+              <a  *ngIf="!_auth.loggedIn()"  data-toggle="modal" data-target="#darkModalForm"class="dropdown-item" >Sign Up</a>
+              <a *ngIf="!_auth.loggedIn()"data-toggle="modal" data-target="#elegantModalForm"class="dropdown-item" [routerLink]="loginUser">Sign In</a>
 
             </div>
           </li>
@@ -26,6 +26,16 @@
               <a data-toggle="modal" data-target="#Form1"class="dropdown-item">Sign Up</a>
               <a data-toggle="modal" data-target="#Form2"class="dropdown-item"[routerLink]="loginCom">Sign In</a>
 
+            </div>
+
+          </li>
+          <li class="nav-item dropdown" *ngIf="_auth.loggedIn()">
+            <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="clearfix d-none d-sm-inline-block">Profile</span><i class="fas fa-user"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
+              <a  class="dropdown-item waves-effect waves-light"  (click)="_auth.logoutUser()" >Logout <i class="fas fa-sign-out-alt"></i>
+            </a>
             </div>
           </li>
           <li class="nav-item" style="margin-left:500px">

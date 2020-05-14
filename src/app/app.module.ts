@@ -106,8 +106,13 @@ import {TokenInterceptorService} from './services/token-interceptor.service'
       AuthService,
       HttpClientModule,
       StagesService,
-      AuthGuard
+      AuthGuard,
 
+      {
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptorService,
+      multi:true
+      }
 
   ],
   bootstrap: [AppComponent]

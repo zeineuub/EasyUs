@@ -80,8 +80,8 @@ export class HeaderComponent implements OnInit {
 //login and registration for companies
 registerCom()
   {
-    console.log(this.registerUserdata);
-    this._auth.registerUser(this.registerUserdata)
+    console.log(this.registerComdata);
+    this._auth.registerUser(this.registerComdata)
       .subscribe(
         res=> {
           console.log(res)

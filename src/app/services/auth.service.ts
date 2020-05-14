@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import{HttpClient,HttpHeaders} from '@angular/common/http';
-
+import{Router} from '@angular/router'
 import 'rxjs/add/operator/map';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class AuthService {
   private _loginComUrl="http://localhost:3000/user/loginCom";
 
   headers = new HttpHeaders().set("Content-Type", "application/json");
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router:Router) { }
 
   //registration and login for user
 //accept a user obj return the response that the backend API sends
@@ -51,6 +51,14 @@ loginCom(user){
     return !! localStorage.getItem('token')
   }
 
+  getToken(){
+    return localStorage.getItem('token');
+  }
+
+  logoutUser(){
+    localStorage.removeItem('token');
+    this.router.navigate(['']);
+  }
 
 
 }
