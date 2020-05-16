@@ -23,8 +23,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-building"></i>Sign Up</a>
             <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-              <a data-toggle="modal" data-target="#Form1"class="dropdown-item">Sign Up</a>
-              <a data-toggle="modal" data-target="#Form2"class="dropdown-item"[routerLink]="loginCom">Sign In</a>
+              <a *ngIf="!_auth.loggedIn()"  data-toggle="modal" data-target="#Form1"class="dropdown-item">Sign Up</a>
+              <a *ngIf="!_auth.loggedIn()"data-toggle="modal" data-target="#Form2"class="dropdown-item"[routerLink]="loginCom">Sign In</a>
 
             </div>
 
@@ -39,7 +39,7 @@
             </div>
           </li>
           <li class="nav-item" style="margin-left:500px">
-            <a style="font-weight:bold ;"class="nav-link" routerLink="/stage" *ngIf="!_auth.loggedIn()" routerLinkActive="active">Stage</a>
+            <a style="font-weight:bold ;"class="nav-link" routerLink="/stage" (click)="_auth.logoutUser()" routerLinkActive="active">Stage</a>
           </li>
 
 

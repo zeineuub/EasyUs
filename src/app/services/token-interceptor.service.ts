@@ -4,7 +4,7 @@ import{AuthService} from './auth.service';
 
 @Injectable()
 export class TokenInterceptorService implements HttpInterceptor {
-
+//bish yabaath el token mil browser lil server
   constructor(private injector:Injector) { }
   intercept(req,next){
     let authService=this.injector.get(AuthService)

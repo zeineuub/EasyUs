@@ -15,4 +15,7 @@ export class AllComponent implements OnInit {
   sendToListage(){
     this.router.navigate(['/listage']);
   }
+  sendTocontactUs(){
+    this.router.navigate(['/contacompany'])
+  }
 }

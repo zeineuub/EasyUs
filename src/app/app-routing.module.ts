@@ -1,22 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
-
-import{ SEComponent} from './se/se.component'
-
-import{ DevComponent} from'./dev/dev.component';
-
-import{NetworkComponent} from'./network/network.component';
-
 import { CompaniesComponent} from './companies/companies.component';
-
 import{ContactComponent} from'./contact/contact.component';
 import{AllComponent} from './all/all.component';
 import{StageComponent} from './stage/stage.component'
 import{NewsComponent} from'./news/news.component';
 import{ListeStageComponent} from './liste-stage/liste-stage.component'
 import{AuthGuard} from'./auth.guard';
-
+import{ContacompanyComponent} from './contacompany/contacompany.component'
 const routes: Routes = [
 
   {
@@ -32,6 +24,10 @@ const routes: Routes = [
     the user is authenticated */
 
 
+  },
+  {
+    path:'contacompany',
+    component:ContacompanyComponent
   },
   {
     path:'news',
@@ -50,19 +46,7 @@ const routes: Routes = [
         path:'all',
         component:AllComponent,
 
-      },
-      {
-        path:'dev',
-        component:DevComponent
-      },
-      {
-        path:'network',
-        component:NetworkComponent
-      },
-      {
-        path:'se',
-        component: SEComponent
-     }
+      }
 
     ]
   },

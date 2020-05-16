@@ -1,13 +1,25 @@
 const jwt=require('jsonwebtoken');
 
 module.exports=function (req,res,next){
-  const token=req.header('auth-token');
-  if(!token) return res.status(400).send('Access dinied');
-  try{
-    const verified=jwt.verify(token,process.env.Token_secret);
-    req.user=verified;
-    next();
-  }catch(err){
-    res.status(400).send('Invalid Token');
+  //if the autherazation key is present in the header
+  //if the auth is not present
+  if (!req.headers.authorization){
+    console.log('here we are in auth')
+    return res.status(401).send('Unauthorized request')
   }
+  //if it's present
+  //we extract the token from the bearer token
+  let token= req.headers.authorization.split(' ')[1]
+  if(token =='null'){
+    console.log('here we are in token')
+    return res.status(401).send ('Unauthorizzed request')
+  }
+  //verify token
+  let payload= jwt.verify(token,'secretKey')
+  if(!payload){
+    console.log('here we are in payload')
+    return res.status(401).send('Unauthorized request')
+  }
+  req.userId= payload.subject
+  next()
 }

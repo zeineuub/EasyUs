@@ -1,7 +1,8 @@
 
 const express=require('express');
 const router =express.Router();
-const verify=require('./verifyToken');
+const jwt=require('jsonwebtoken');
+const verify = require('./verifyToken');
 const Listage=require('../models/Listage');
 //handle data not parsed
 const multer=require('multer');
@@ -25,27 +26,14 @@ const upload = multer({
   storage: storage,
 
 });
-function verifyToken(req,res,next){
-  if (!req.headers.authorization){
-    return res.status(401).send('Unauthorized request')
-  }
 
-  let token= req.headers.authorization.split(' ')[1]
-  if(token =='null'){
-    return res.status(401).send ('Unauthorizzed request')
-  }
-
-  let payload= jwt.verify(token,'secretKey')
-  if(!payload){
-    return res.status(401).send('Unauthorized request')
-  }
-  req.userId= payload.subject
-  next()
-}
 //retrive list stage
-router.get('/listage',verifyToken,(req,res)=>{
+//we verufy first the token ken shih ou kol yaatini el list
+router.get('/listage',verify,(req,res)=>{
   Listage.find((err,list)=>{
+
     res.json(list);
+
   })
 })
 
@@ -55,12 +43,16 @@ router.post('/addstage',upload.single('image'),(req,res)=>{
   console.log(req.file);
 
   let stage=new Listage({
-    namesociete:req.body.namesociete,
-    emailsociete:req.body.emailsociete,
+    namecompany:req.body.namecompany,
+    emailcompany:req.body.emailcompany,
     nomstage:req.body.nomstage,
-    discription:req.body.discription,
+    description:req.body.description,
+    category:req.body.category,
     image:req.file.path
   })
+
+  populate("namecompany")
+  populate("emailcompany")
   stage.save((error,list)=>{
     if(error){
       console.log(error)

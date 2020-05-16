@@ -1,18 +1,17 @@
 const mongoose=require('mongoose');
 const ListageSchema=new mongoose.Schema({
     //les attributs fil db
-    nomsociete:{
-      type:String,
+    namecompany:
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Usercompany"
+      },
+      emailcompany:
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Usercompany"
+      },
 
-      min:6,
-      max:255
-  },
-    emailsociete:{
-        type:String,
-
-        max:255,
-        min:6
-    },
     nomstage:{
       type:String,
 
@@ -24,6 +23,10 @@ const ListageSchema=new mongoose.Schema({
 
         max:1024,
         min:8
+    },
+    category : {
+      type:String,
+      required: true,
     },
     image:{
       type:String,

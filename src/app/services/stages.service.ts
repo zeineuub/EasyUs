@@ -11,6 +11,7 @@ export class StagesService {
   //acceptes a stage object and returns the response that the backend API sends
 
   addStage(stage){
+
     return this.http.post<any>(this._stageUrl,stage)
   }
   //return all the stages

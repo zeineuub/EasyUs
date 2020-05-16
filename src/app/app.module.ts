@@ -15,10 +15,7 @@ import {MatSelectModule} from '@angular/material/select';
 
 
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { SEComponent } from './se/se.component';
-import { NetworkComponent } from './network/network.component';
 
-import { DevComponent } from './dev/dev.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { CompaniesComponent } from './companies/companies.component';
@@ -44,7 +41,8 @@ import { ListeStageComponent } from './liste-stage/liste-stage.component';
 import { NewsComponent } from './news/news.component'
 import { AuthGuard } from './auth.guard';
 
-import {TokenInterceptorService} from './services/token-interceptor.service'
+import {TokenInterceptorService} from './services/token-interceptor.service';
+import { ContacompanyComponent } from './contacompany/contacompany.component'
  //configure it in an object
  let config = new AuthServiceConfig([
   {
@@ -60,11 +58,7 @@ import {TokenInterceptorService} from './services/token-interceptor.service'
 @NgModule({
   declarations: [
     AppComponent,
-    SEComponent,
-    NetworkComponent,
-    NetworkComponent,
-    SEComponent,
-    DevComponent,
+
     HomeComponent,
     ErrorComponent,
     CompaniesComponent,
@@ -74,6 +68,7 @@ import {TokenInterceptorService} from './services/token-interceptor.service'
     StageComponent,
     ListeStageComponent,
     NewsComponent,
+    ContacompanyComponent,
 
 
   ],
