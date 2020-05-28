@@ -6,7 +6,8 @@ import {HttpClient} from '@angular/common/http'
 })
 export class StagesService {
   private _stageUrl="http://localhost:3000/user/addstage";
-  private _listageUrl="http://localhost:3000/user/Listage"
+  private _listageUrl="http://localhost:3000/user/Listage";
+  private _somestageUrl="http://localhost:3000/user/somestage";
   constructor(private http:HttpClient) { }
   //acceptes a stage object and returns the response that the backend API sends
 
@@ -18,5 +19,8 @@ export class StagesService {
   getListage(){
     return this.http.get<any>(this._listageUrl)
 
+  }
+  getsomestage(){
+    return this.http.get<any>(this._somestageUrl)
   }
 }

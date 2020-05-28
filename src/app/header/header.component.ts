@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import{ AuthService }from '../services/auth.service';
 
 import{Router} from '@angular/router';
+import { async } from '@angular/core/testing';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -44,7 +45,15 @@ export class HeaderComponent implements OnInit {
   }
   constructor(public  _auth:AuthService,private _router: Router) {}
 
-  ngOnInit(): void {
+ async ngOnInit() {
+   this._auth.getCurrentUser().subscribe(async(data)=>{
+     this. registerUserdata=await data.user;
+   });
+   this._auth.getCurrentUser().subscribe(async(data)=>{
+    this. registerComdata=await data.user;
+  });
+
+
   }
   //login and registration for User
   registerUser()
@@ -107,6 +116,8 @@ registerCom()
       err=> console.log(err)
 
     )}
-
+changepassword(){
+  this._router.navigate(['/changepass'])
+}
 
 }

@@ -8,14 +8,12 @@ import{HttpClient} from '@angular/common/http';
   styleUrls: ['./stage.component.scss']
 })
 export class StageComponent implements OnInit {
-  namecompany:string;
-  emailcompany:string;
+
   nomstage:string;
   description:string;
   category:string;
   stageUserDate={
-    namecompany:this.namecompany,
-    emailcompany:this.emailcompany,
+
     nomstage:this.nomstage,
     description:this.description,
     category:this.category

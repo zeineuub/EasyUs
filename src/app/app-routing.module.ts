@@ -8,7 +8,9 @@ import{StageComponent} from './stage/stage.component'
 import{NewsComponent} from'./news/news.component';
 import{ListeStageComponent} from './liste-stage/liste-stage.component'
 import{AuthGuard} from'./auth.guard';
-import{ContacompanyComponent} from './contacompany/contacompany.component'
+import{ContacompanyComponent} from './contacompany/contacompany.component';
+import{ChangepassComponent} from './changepass/changepass.component';
+import{ResetComponent} from'./reset/reset.component';
 const routes: Routes = [
 
   {
@@ -24,6 +26,15 @@ const routes: Routes = [
     the user is authenticated */
 
 
+  },
+  {
+    path:'reset',
+    component:ResetComponent
+
+  },
+  {
+    path:'changepass',
+    component:ChangepassComponent
   },
   {
     path:'contacompany',

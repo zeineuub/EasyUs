@@ -165,7 +165,7 @@
             <div class="md-form pb-3">
               <input [(ngModel)]="loginUserdata.password"    type="password" name="password" id="password" class="form-control validate">
               <label class="font-weight-bold" style="color:#b71c1c" data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
-              <p  style="color:#1C2331;font-weight: bold;" class="font-small text d-flex justify-content-end">Forgot <a href="#"  style="color:#b71c1c"class="text ml-1">
+              <p style="color:#1C2331;font-weight: bold;" class="font-small text d-flex justify-content-end">Forgot <a (click)="changepassword()" style="color:#b71c1c"class="text ml-1">
                   Password?</a></p>
             </div>
 

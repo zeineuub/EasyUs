@@ -1,21 +1,22 @@
 const mongoose=require('mongoose');
 const CompanySchema=new mongoose.Schema({
     //les attributs fil db
+
     namecompany:{
       type:String,
-      required:true,
+
       min:6,
       max:255
   },
     emailcompany:{
         type:String,
-        required:true,
+
         max:255,
         min:6
     },
     passwordcompany:{
         type:String,
-        required:true,
+
         max:1024,
         min:8
     },

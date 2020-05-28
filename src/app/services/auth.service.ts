@@ -3,6 +3,8 @@ import{HttpClient,HttpHeaders} from '@angular/common/http';
 import{Router} from '@angular/router'
 import 'rxjs/add/operator/map';
 
+import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +16,8 @@ export class AuthService {
   //url for company
   private _registerComUrl="http://localhost:3000/user/registerCom";
   private _loginComUrl="http://localhost:3000/user/loginCom";
-
+  private _currentUser="http://localhost:3000/user/currentUser"
+  private _passUser="http://localhost:3000/user/forget"
   headers = new HttpHeaders().set("Content-Type", "application/json");
   constructor(private http:HttpClient,private router:Router) { }
 
@@ -45,6 +48,9 @@ loginCom(user){
 }
 
 
+changepass(user){
+  return this.http.post<any>(this._passUser,user,{ headers: this.headers})
+}
 
   //if the token exists in the browser it gonna return true
   loggedIn(){
@@ -59,6 +65,15 @@ loginCom(user){
     localStorage.removeItem('token');
     this.router.navigate(['']);
   }
+
+
+
+
+
+getCurrentUser():Observable<any> {
+  return this.http.get<any>(this._currentUser,{ headers: this.headers})
+
+}
 
 
 }

@@ -13,11 +13,9 @@ var cookieParser = require('cookie-parser');
 //cors middlware
 app.use(cors());
 
-// set up BodyParser Middleware
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
-app.use(cookieParser());
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 //Route Middleware
 app.use('/user',user);
 app.use('/user',Stage);

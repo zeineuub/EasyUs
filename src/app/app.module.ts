@@ -42,7 +42,9 @@ import { NewsComponent } from './news/news.component'
 import { AuthGuard } from './auth.guard';
 
 import {TokenInterceptorService} from './services/token-interceptor.service';
-import { ContacompanyComponent } from './contacompany/contacompany.component'
+import { ContacompanyComponent } from './contacompany/contacompany.component';
+import { ChangepassComponent } from './changepass/changepass.component';
+import { ResetComponent } from './reset/reset.component'
  //configure it in an object
  let config = new AuthServiceConfig([
   {
@@ -69,6 +71,8 @@ import { ContacompanyComponent } from './contacompany/contacompany.component'
     ListeStageComponent,
     NewsComponent,
     ContacompanyComponent,
+    ChangepassComponent,
+    ResetComponent,
 
 
   ],
