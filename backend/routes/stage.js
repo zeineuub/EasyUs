@@ -7,7 +7,7 @@ const Listage=require('../models/Listage');
 //handle data not parsed
 const multer=require('multer');
 const UserCompany=require('../models/company');
-
+const Category=require('../models/category')
 
 
 //Multer will store all the incoming files in this directory
@@ -32,37 +32,69 @@ const upload = multer({
 //retrive list stage
 //we verufy first the token ken shih ou kol yaatini el list
 router.get('/listage',verify,(req,res)=>{
-  Listage.find((err,list)=>{
+  Listage.find()
+    .select("userId nomstage description categoryId")
+    .populate('userId')
+    .populate('categoryId','namecat')
+    .exec()
+    .then(stages=>{
+      res.status(200).json({
+        count:stages.length,
+        listage:stages.map(stage=>{
+          return{
+            userId:stage.userId,
+            nomsatge:stage.nomstage,
+            description:stage.description,
+            categoryId:stage.categoryId,
 
-    res.json(list);
+          };
+        })
+
+      });
+    })
+    .catch(err=>{
+      res.status(500).json({
+        error:err
+      })
+    })
+
+})
+router.post('/addstage',verify, async (req, res,next) => {
+
+  const category= await Category.findOne({
+    _id:req.body.categoryId
 
   })
-  .populate('userId')
-})
-router.post('/addstage', async (req, res) => {
-
-  try{
+  console.log(category)
    const user  = await UserCompany.findOne({
       _id:req.body.userId
-   })
+   });
+   console.log(user)
+
    if(!user) res.status(500).send('we cant find the user')
+
    const savestage= await new Listage ({
     description:req.body.description,
     nomstage:req.body.nomstage,
-    category:req.body.category,
+    categoryId:category._id,
     userId: user._id,
    });
-   const result = await savestage.save();
-   res.status(200).json(result) ;
+   savestage
+   .save()
 
+   .then(result=>{
+     console.log(result);
+     res.status(201).json({
+       message:'Intership stored',
 
-  }catch (err)
-  {
-    console.log(user)
-    res.status(409)
-    .json({message : 'bazz andek mochkla'})
-
-  }
+     });
+   })
+   .catch(err=>{
+     console.log(err);
+     res.status(500).json({
+       error:err
+     });
+   });
 
 });
 

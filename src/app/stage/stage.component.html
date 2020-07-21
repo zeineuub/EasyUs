@@ -5,6 +5,19 @@
      <div class="box">
         <h2>Stage</h2>
        <form >
+
+        <br>
+        <br>
+        <h5 style="color:white;font-size: 16px;">Select one of this category</h5>
+        <mat-form-field>
+          <mat-label>Category</mat-label>
+          <mat-select [formControl]="categories" [(ngModel)]="stageUserDate.category">
+            <mat-option *ngFor="let category of categoryList" [value]="category">{{category}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+
           <div class="inputBox">
             <label for="" class="">Add Stage</label>
           </div>
@@ -16,12 +29,7 @@
             <label for="" class="">Name intership</label>
 
           </div>
-          <div class="inputBox">
 
-            <input [(ngModel)]="stageUserDate.category"  type="text" class="" name="category"  required>
-            <label for="" class="">Category</label>
-
-          </div>
           <div class="inputBox">
              <textarea [(ngModel)]="stageUserDate.description" class="" name="description"  required></textarea>
              <label class="">Description</label>

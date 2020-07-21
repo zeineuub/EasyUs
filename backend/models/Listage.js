@@ -4,7 +4,8 @@ const ListageSchema=new mongoose.Schema({
     userId:
     {
       type:mongoose.Schema.Types.ObjectId,
-      ref:'Usercompany'
+      ref:'Usercompany',
+      required:true
 
     },
 
@@ -20,8 +21,9 @@ const ListageSchema=new mongoose.Schema({
         max:1024,
         min:8
     },
-    category : {
-      type:String,
+    categoryId : {
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'Category',
       required:true,
     },
     image:{

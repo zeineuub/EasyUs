@@ -18,7 +18,7 @@ const CompanySchema=new mongoose.Schema({
         type:String,
 
         max:1024,
-        min:8
+        min:8,
     },
     date:{
         type:Date,

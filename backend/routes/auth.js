@@ -30,6 +30,7 @@ router.post('/register',  async (req,res) => {
       password: hashedPassword,
 
   });
+  if(userData.password==undefined) return res.status(500).send('password empty')
   let user = new User(userData)
   user.save((error, registeredUser)=>{
       if(error){
@@ -106,6 +107,7 @@ router.post('/registerCom',  async (req,res) => {
   user.save((error, registeredUser)=>{
       if(error){
           console.log(error)
+          console.log('hereee')
       } else {
           let payload = { subject: registeredUser._id}
           let token = jwt.sign(payload, 'secretKey')

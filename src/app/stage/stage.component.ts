@@ -2,13 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import{StagesService} from '../services/stages.service'
 import{Router, ChildActivationStart} from '@angular/router';
 import{HttpClient} from '@angular/common/http';
+import {FormControl} from '@angular/forms';
+
 @Component({
   selector: 'app-stage',
   templateUrl: './stage.component.html',
   styleUrls: ['./stage.component.scss']
 })
 export class StageComponent implements OnInit {
-
+  categories = new FormControl();
+  categoryList: string[] = ['Architecture IT et Cloud Computing','Network Infrastructure and Data Security','Embedded System','Development'];
   nomstage:string;
   description:string;
   category:string;
@@ -36,6 +39,7 @@ export class StageComponent implements OnInit {
     );
       this.router.navigate(['/listage'])
   }
+  //upload image
   onFileSelected(event){
     this.selectedFile=<File>event.target.files[0];
   }
